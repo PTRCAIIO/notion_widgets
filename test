@@ -1,124 +1,18 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Day Tracker Widget</title>
-	<style>
-		.container {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			font-size: 24px;
-		}
-
-		.counter {
-			display: flex;
-			flex-direction: row;
-			align-items: center;
-			margin-bottom: 16px;
-		}
-
-		.label {
-			margin-right: 8px;
-		}
-
-		.button {
-			background-color: #0077cc;
-			color: #fff;
-			border: none;
-			padding: 8px;
-			border-radius: 4px;
-			margin: 0 8px;
-			cursor: pointer;
-			transition: background-color 0.3s ease;
-		}
-
-		.button:hover {
-			background-color: #005fa3;
-		}
-	</style>
-</head>
-<body>
-	<div class="container">
-		<div class="counter">
-			<div class="label">Days:</div>
-			<div id="days">0</div>
-			<button class="button" id="addDay">+</button>
-			<button class="button" id="subDay">-</button>
-		</div>
-		<div class="counter">
-			<div class="label">Months:</div>
-			<div id="months">0</div>
-			<button class="button" id="addMonth">+</button>
-			<button class="button" id="subMonth">-</button>
-		</div>
-		<div class="counter">
-			<div class="label">Years:</div>
-			<div id="years">0</div>
-			<button class="button" id="addYear">+</button>
-			<button class="button" id="subYear">-</button>
-		</div>
-	</div>
-
-	<script>
-		const daysEl = document.getElementById("days");
-		const monthsEl = document.getElementById("months");
-		const yearsEl = document.getElementById("years");
-
-		let days = 0;
-		let months = 0;
-		let years = 0;
-
-		function updateDisplay() {
-			daysEl.innerHTML = days;
-			monthsEl.innerHTML = months;
-			yearsEl.innerHTML = years;
-		}
-
-		function addDay() {
-			days++;
-			updateDisplay();
-		}
-
-		function subDay() {
-			if (days > 0) {
-				days--;
-				updateDisplay();
-			}
-		}
-
-		function addMonth() {
-			months++;
-			if (months > 11) {
-				years++;
-				months = 0;
-			}
-			updateDisplay();
-		}
-
-		function subMonth() {
-			if (months === 0) {
-				if (years > 0) {
-					years--;
-					months = 11;
-				}
-			} else {
-				months--;
-			}
-			updateDisplay();
-		}
-
-		function addYear() {
-			years++;
-			updateDisplay();
-		}
-
-		function subYear() {
-			if (years > 0) {
-				years--;
-				updateDisplay();
-			}
-		}
-
-		document.getElementById("addDay").addEventListener("click", addDay);
-		document.getElementById("subDay").addEventListener("click", subDay);
-		document.getElementById("addMonth").addEventListener("click",
+<div class="container">
+<div class="well">
+   <div class="counter" id="clockdiv">
+      <span class="title">Next Showing</span>
+      <div class="sq">
+         <span class="days bord">1</span> <span class="smalltext">Days</span>
+      </div>
+      <div class="sq">
+         <span class="hours bord">22</span> <span class="smalltext">Hours</span>
+      </div>
+      <div class="sq">
+         <span class="minutes bord">40</span> <span class="smalltext">Mins</span>
+      </div>
+      <div class="sq">
+         <span class="seconds bord">45</span> <span class="smalltext">Secs</span>
+      </div>
+   </div>
+</div>
